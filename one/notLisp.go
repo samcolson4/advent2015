@@ -5,6 +5,8 @@ func Calculate(s string) (int, error) {
 
 	if s == "(" {
 		output += 1
+	} else {
+		output -= 1
 	}
 
 	return output, nil
