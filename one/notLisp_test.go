@@ -3,7 +3,7 @@ package notLisp_test
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/samcolson4/advent2015/one/notLisp"
+	notLisp "github.com/samcolson4/advent2015/one"
 )
 
 var _ = Describe("notLisp", func() {
