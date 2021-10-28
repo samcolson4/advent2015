@@ -1,4 +1,4 @@
-module github.com/samcolson4/advent2015
+module github.com/samcolson4/advent2015/one
 
 go 1.17
 
