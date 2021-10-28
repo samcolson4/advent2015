@@ -14,4 +14,12 @@ var _ = Describe("notLisp", func() {
 		Expect(err).NotTo(HaveOccurred())
 		Expect(output).To(Equal(0))
 	})
+
+	It("returns 1 when passed '('", func() {
+		input := "("
+		output, err := notLisp.Calculate(input)
+
+		Expect(err).NotTo(HaveOccurred())
+		Expect(output).To(Equal(1))
+	})
 })
