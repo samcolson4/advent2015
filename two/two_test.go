@@ -33,4 +33,12 @@ var _ = Describe("noMath", func() {
 		Expect(err).NotTo(HaveOccurred())
 		Expect(smallest_area).To(Equal(6))
 	})
+
+	It("Calculates multiple lines and outputs a total", func() {
+		input := []string{"2x3x4", "2x3x4"}
+		total, err := noMath.SumPaper(input)
+
+		Expect(err).NotTo(HaveOccurred())
+		Expect(total).To(Equal(116))
+	})
 })

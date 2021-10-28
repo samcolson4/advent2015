@@ -44,7 +44,6 @@ func StripText(s string) ([]int, error) {
 }
 
 func SmallestSide(input []int) (int, error) {
-
 	length := input[0]
 	width := input[1]
 	height := input[2]
@@ -63,4 +62,24 @@ func SmallestSide(input []int) (int, error) {
 	}
 
 	return smallest, nil
+}
+
+func SumPaper(input []string) (int, error) {
+	var total int
+
+	for _, present := range input {
+		strippedValues, err := StripText(present)
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		wrappingNeeded, err := Calculate(strippedValues)
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		total += wrappingNeeded
+	}
+
+	return total, nil
 }
