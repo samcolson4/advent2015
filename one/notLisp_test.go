@@ -7,13 +7,13 @@ import (
 )
 
 var _ = Describe("notLisp", func() {
-	// It("returns 0 when passed '(())'", func() {
-	// 	input := "(())"
-	// 	output, err := notLisp.Calculate(input)
+	It("returns 0 when passed '(())'", func() {
+		input := "(())"
+		output, err := notLisp.Calculate(input)
 
-	// 	Expect(err).NotTo(HaveOccurred())
-	// 	Expect(output).To(Equal(0))
-	// })
+		Expect(err).NotTo(HaveOccurred())
+		Expect(output).To(Equal(0))
+	})
 
 	It("returns 1 when passed '('", func() {
 		input := "("

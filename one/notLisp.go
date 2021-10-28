@@ -1,12 +1,17 @@
 package notLisp
 
+import "strings"
+
 func Calculate(s string) (int, error) {
 	output := 0
+	stringSlice := strings.Split(s, "")
 
-	if s == "(" {
-		output += 1
-	} else {
-		output -= 1
+	for _, letter := range stringSlice {
+		if letter == "(" {
+			output += 1
+		} else {
+			output -= 1
+		}
 	}
 
 	return output, nil
