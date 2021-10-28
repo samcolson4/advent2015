@@ -6,11 +6,25 @@ import (
 	"strings"
 )
 
-// func Calculate(s string) (int, error) {
-// 	var output int
+func Calculate(input []int) (int, error) {
+	var output int
 
-// 	return output, nil
-// }
+	length := input[0]
+	width := input[1]
+	height := input[2]
+
+	box := (2 * length * width) + (2 * width * height) + (2 * height * length)
+
+	smallestSide, err := SmallestSide(input)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	output = box + smallestSide
+
+	return output, nil
+}
 
 func StripText(s string) ([]int, error) {
 	var measureInt []int

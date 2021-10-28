@@ -18,13 +18,13 @@ var _ = Describe("noMath", func() {
 		Expect(measure[2]).To(Equal(24))
 	})
 
-	// It("calculates the total area, plus the smallest side again", func() {
-	// 	input := []int{2, 3, 4}
-	// 	total_area, err := noMath.Calculate(input)
+	It("calculates the total area, plus the smallest side again", func() {
+		input := []int{2, 3, 4}
+		total_area, err := noMath.Calculate(input)
 
-	// 	Expect(err).NotTo(HaveOccurred())
-	// 	Expect(total_area).To(Equal(58))
-	// })
+		Expect(err).NotTo(HaveOccurred())
+		Expect(total_area).To(Equal(58))
+	})
 
 	It("calculates the area of the smallest side", func() {
 		input := []int{2, 3, 4}
