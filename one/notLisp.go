@@ -1,6 +1,8 @@
 package notLisp
 
-import "strings"
+import (
+	"strings"
+)
 
 func Calculate(s string) (int, error) {
 	output := 0
@@ -9,7 +11,7 @@ func Calculate(s string) (int, error) {
 	for _, letter := range stringSlice {
 		if letter == "(" {
 			output += 1
-		} else {
+		} else if letter == ")" {
 			output -= 1
 		}
 	}
