@@ -28,3 +28,25 @@ func StripText(s string) ([]int, error) {
 
 	return measureInt, nil
 }
+
+func SmallestSide(input []int) (int, error) {
+
+	length := input[0]
+	width := input[1]
+	height := input[2]
+
+	a := length * height
+	b := length * width
+	c := height * width
+
+	areas := []int{a, b, c}
+
+	smallest := areas[0]
+	for _, num := range areas[1:] {
+		if num < smallest {
+			smallest = num
+		}
+	}
+
+	return smallest, nil
+}
