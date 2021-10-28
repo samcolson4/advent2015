@@ -30,4 +30,12 @@ var _ = Describe("notLisp", func() {
 		Expect(err).NotTo(HaveOccurred())
 		Expect(output).To(Equal(-1))
 	})
+
+	It("calculates multiple characters in a string correctly", func() {
+		input := "))((((("
+		output, err := notLisp.Calculate(input)
+
+		Expect(err).NotTo(HaveOccurred())
+		Expect(output).To(Equal(3))
+	})
 })
