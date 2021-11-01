@@ -13,6 +13,9 @@ func SetCoords(input string) (output [][]int, err error) {
 	} else if input == "v" {
 		updateCoords := []int{startCoords[0], startCoords[1] - 1}
 		output = append(output, updateCoords)
+	} else {
+		updateCoords := []int{startCoords[0] - 1, startCoords[1]}
+		output = append(output, updateCoords)
 	}
 
 	return output, nil
