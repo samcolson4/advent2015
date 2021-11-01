@@ -28,12 +28,13 @@ func main() {
 		log.Fatal(err)
 	}
 
-	output, err := noMath.SumPaper(data)
+	totalPaper, totalRibbon, err := noMath.SumPaper(data)
 
 	if err != nil {
 		fmt.Println("File reading error", err)
 		return
 	}
 
-	fmt.Println(output)
+	fmt.Println("Total paper: ", totalPaper)
+	fmt.Println("Total ribbon: ", totalRibbon)
 }

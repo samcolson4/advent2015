@@ -36,9 +36,18 @@ var _ = Describe("noMath", func() {
 
 	It("Calculates multiple lines and outputs a total", func() {
 		input := []string{"2x3x4", "2x3x4"}
-		total, err := noMath.SumPaper(input)
+		totalPaper, totalRibbon, err := noMath.SumPaper(input)
 
 		Expect(err).NotTo(HaveOccurred())
-		Expect(total).To(Equal(116))
+		Expect(totalPaper).To(Equal(116))
+		Expect(totalRibbon).To(Equal(68))
+	})
+
+	It("Calculates how much ribbon is needed", func() {
+		input := []int{2, 3, 4}
+
+		output, err := noMath.MeasureRibbon(input)
+		Expect(err).NotTo(HaveOccurred())
+		Expect(output).To(Equal(34))
 	})
 })

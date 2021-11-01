@@ -2,6 +2,7 @@ package noMath
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -64,8 +65,26 @@ func SmallestSide(input []int) (int, error) {
 	return smallest, nil
 }
 
-func SumPaper(input []string) (int, error) {
-	var total int
+func MeasureRibbon(input []int) (int, error) {
+	var output int
+
+	length := input[0]
+	width := input[1]
+	height := input[2]
+
+	sort.Ints(input)
+
+	bowRibbon := length * width * height
+	boxRibbon := (input[0] * 2) + (input[1] * 2)
+
+	output = bowRibbon + boxRibbon
+
+	return output, nil
+}
+
+func SumPaper(input []string) (int, int, error) {
+	var totalPaper int
+	var totalRibbon int
 
 	for _, present := range input {
 		strippedValues, err := StripText(present)
@@ -78,8 +97,14 @@ func SumPaper(input []string) (int, error) {
 			fmt.Println(err)
 		}
 
-		total += wrappingNeeded
+		ribbon, err := MeasureRibbon(strippedValues)
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		totalPaper += wrappingNeeded
+		totalRibbon += ribbon
 	}
 
-	return total, nil
+	return totalPaper, totalRibbon, nil
 }
