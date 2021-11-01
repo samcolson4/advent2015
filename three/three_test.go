@@ -75,5 +75,13 @@ var _ = Describe("Three", func() {
 		Expect(err).NotTo(HaveOccurred())
 		Expect(housesVisited).To(Equal(2))
 	})
+})
 
+var _ = Describe("RoboThree", func() {
+	It("Creates coords for Santa & roboSanta", func() {
+		SantaCoords, RoboCoords, err := three.SplitInput("^v")
+		Expect(err).NotTo(HaveOccurred())
+		Expect(SantaCoords).To(Equal("^"))
+		Expect(RoboCoords).To(Equal("v"))
+	})
 })

@@ -68,3 +68,23 @@ func MakeCoords(coords [][]int) (output []coordinate) {
 
 	return output
 }
+
+func SplitInput(input string) (SantaCoords string, RoboCoords string, err error) {
+	var sCoord []string
+	var rCoord []string
+
+	directions := strings.Split(input, "")
+
+	for index, element := range directions {
+		if index%2 == 0 {
+			sCoord = append(sCoord, element)
+		} else {
+			rCoord = append(rCoord, element)
+		}
+	}
+
+	SantaCoords = strings.Join(sCoord[:], ",")
+	RoboCoords = strings.Join(rCoord[:], ",")
+
+	return SantaCoords, RoboCoords, nil
+}
