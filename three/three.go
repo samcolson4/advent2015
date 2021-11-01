@@ -1,21 +1,30 @@
 package three
 
+import "strings"
+
 func SetCoords(input string) (output [][]int, err error) {
 	startCoords := []int{0, 0}
 	output = append(output, startCoords)
 
-	if input == ">" {
-		updateCoords := []int{startCoords[1] + 1, startCoords[0]}
-		output = append(output, updateCoords)
-	} else if input == "^" {
-		updateCoords := []int{startCoords[0], startCoords[1] + 1}
-		output = append(output, updateCoords)
-	} else if input == "v" {
-		updateCoords := []int{startCoords[0], startCoords[1] - 1}
-		output = append(output, updateCoords)
-	} else {
-		updateCoords := []int{startCoords[0] - 1, startCoords[1]}
-		output = append(output, updateCoords)
+	directions := strings.Split(input, "")
+
+	for _, val := range directions {
+		lastX := output[len(output)-1][0]
+		lastY := output[len(output)-1][1]
+
+		if val == ">" {
+			updateCoords := []int{lastX + 1, lastY}
+			output = append(output, updateCoords)
+		} else if val == "^" {
+			updateCoords := []int{lastX, lastY + 1}
+			output = append(output, updateCoords)
+		} else if val == "v" {
+			updateCoords := []int{lastX, lastY - 1}
+			output = append(output, updateCoords)
+		} else if val == "<" {
+			updateCoords := []int{lastX - 1, lastY}
+			output = append(output, updateCoords)
+		}
 	}
 
 	return output, nil

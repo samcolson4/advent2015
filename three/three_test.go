@@ -40,4 +40,15 @@ var _ = Describe("Three", func() {
 		Expect(coords[0]).To(Equal([]int{0, 0}))
 		Expect(coords[1]).To(Equal([]int{-1, 0}))
 	})
+
+	It("Accepts multiple symbols at a time", func() {
+		coords, err := three.SetCoords("^>v<")
+
+		Expect(err).NotTo(HaveOccurred())
+		Expect(coords[0]).To(Equal([]int{0, 0}))
+		Expect(coords[1]).To(Equal([]int{0, 1}))
+		Expect(coords[2]).To(Equal([]int{1, 1}))
+		Expect(coords[3]).To(Equal([]int{1, 0}))
+		Expect(coords[4]).To(Equal([]int{0, 0}))
+	})
 })
