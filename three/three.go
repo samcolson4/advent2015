@@ -1,6 +1,13 @@
 package three
 
-import "strings"
+import (
+	"strings"
+)
+
+type coordinate struct {
+	xCoord int
+	yCoord int
+}
 
 func SetCoords(input string) (output [][]int, err error) {
 	startCoords := []int{0, 0}
@@ -28,4 +35,36 @@ func SetCoords(input string) (output [][]int, err error) {
 	}
 
 	return output, nil
+}
+
+func CalculateHouses(coords []coordinate) (output int, err error) {
+	var beenThere []coordinate
+
+uniqueLoop:
+	for _, v := range coords {
+		for i, u := range beenThere {
+			if v.xCoord == u.xCoord && v.yCoord == u.yCoord {
+				beenThere[i] = v
+				continue uniqueLoop
+			}
+		}
+		beenThere = append(beenThere, v)
+	}
+
+	output = len(beenThere)
+
+	return output, nil
+}
+
+func MakeCoords(coords [][]int) (output []coordinate) {
+
+	for _, coord := range coords {
+		coStruct := coordinate{
+			xCoord: coord[0],
+			yCoord: coord[1],
+		}
+		output = append(output, coStruct)
+	}
+
+	return output
 }

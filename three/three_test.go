@@ -51,4 +51,16 @@ var _ = Describe("Three", func() {
 		Expect(coords[3]).To(Equal([]int{1, 0}))
 		Expect(coords[4]).To(Equal([]int{0, 0}))
 	})
+
+	It("Calculates how many time a house has been visited", func() {
+		coords, err := three.SetCoords("^>v<")
+		Expect(err).NotTo(HaveOccurred())
+
+		coordStructs := three.MakeCoords(coords)
+
+		housesVisited, err := three.CalculateHouses(coordStructs)
+
+		Expect(err).NotTo(HaveOccurred())
+		Expect(housesVisited).To(Equal(4))
+	})
 })
