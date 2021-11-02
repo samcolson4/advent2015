@@ -16,4 +16,13 @@ var _ = Describe("Four", func() {
 		Expect(err).NotTo(HaveOccurred())
 		Expect(hashNumber).To(Equal(609043))
 	})
+
+	It("Calculates another hash number", func() {
+		input := "pqrstuv"
+
+		hashNumber, err := four.CalulcateHash(input)
+
+		Expect(err).NotTo(HaveOccurred())
+		Expect(hashNumber).To(Equal(1048970))
+	})
 })
