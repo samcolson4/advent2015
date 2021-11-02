@@ -29,3 +29,22 @@ func CheckVowels(input string) (output bool) {
 	return output
 
 }
+
+func CheckDoubles(input string) (output bool) {
+	splitString := strings.Split(input, "")
+	var doubleCount int
+
+	for i, letter := range splitString {
+		if i == len(splitString)-1 {
+			continue
+		} else if letter == splitString[i+1] {
+			doubleCount++
+		}
+	}
+
+	if doubleCount > 0 {
+		output = true
+	}
+
+	return output
+}

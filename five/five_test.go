@@ -22,4 +22,20 @@ var _ = Describe("Five", func() {
 
 		Expect(assert).To(Equal(false))
 	})
+
+	It("Is nice because it has a double letter", func() {
+		input := "ugknbfddgicrmopn"
+
+		assert := five.CheckDoubles(input)
+
+		Expect(assert).To(Equal(true))
+	})
+
+	It("Is nasty because it does not have a double letter", func() {
+		input := "yhjplkqm"
+
+		assert := five.CheckDoubles(input)
+
+		Expect(assert).To(Equal(false))
+	})
 })
