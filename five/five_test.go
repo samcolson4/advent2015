@@ -105,4 +105,12 @@ var _ = Describe("Five pt.2", func() {
 
 		Expect(assert).To(Equal(true))
 	})
+
+	It("Checks both arguments", func() {
+		input := "ieodomkazucvgmuy"
+
+		assert := five.TwoCheckAll(input)
+
+		Expect(assert).To(Equal(false))
+	})
 })

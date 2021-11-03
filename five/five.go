@@ -133,3 +133,11 @@ func TwoCheckRepeats(input string) (output bool) {
 
 	return output
 }
+
+func TwoCheckAll(input string) (output bool) {
+	if TwoCheckRepeats(input) && TwoCheckPairs(input) {
+		output = true
+	}
+
+	return output
+}
