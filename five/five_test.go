@@ -89,4 +89,12 @@ var _ = Describe("Five pt.2", func() {
 
 		Expect(assert).To(Equal(false))
 	})
+
+	It("Is nice because it has repeating letters either side of another letter", func() {
+		input := "odo"
+
+		assert := five.TwoCheckRepeats(input)
+
+		Expect(assert).To(Equal(true))
+	})
 })

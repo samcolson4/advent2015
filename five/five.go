@@ -110,3 +110,26 @@ func TwoCheckPairs(input string) (output bool) {
 	return output
 
 }
+
+func TwoCheckRepeats(input string) (output bool) {
+	var doubleCount int
+	splitString := strings.Split(input, "")
+
+	for i, letter := range splitString {
+		// checks if the index is the final one in the slice or the penultimate one.
+		if i == len(splitString)-1 || i == len(splitString)-2 {
+			continue
+		}
+
+		if letter == splitString[i+2] {
+			doubleCount++
+		}
+
+	}
+
+	if doubleCount > 0 {
+		output = true
+	}
+
+	return output
+}
