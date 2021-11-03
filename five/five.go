@@ -92,7 +92,13 @@ func TwoCheckPairs(input string) (output bool) {
 	for i, letter := range splitString {
 		if i == len(splitString)-1 {
 			continue
-		} else if letter == splitString[i+1] {
+		}
+
+		if letter == splitString[i+1] && i == 0 {
+			pairCount++
+		}
+
+		if i != 0 && splitString[i+1] != splitString[i-1] && letter == splitString[i+1] {
 			pairCount++
 		}
 	}

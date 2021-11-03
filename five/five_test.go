@@ -73,4 +73,12 @@ var _ = Describe("Five pt.2", func() {
 
 		Expect(assert).To(Equal(true))
 	})
+
+	It("Is naughty because it has an overlapping pair", func() {
+		input := "aaa"
+
+		assert := five.TwoCheckPairs(input)
+
+		Expect(assert).To(Equal(false))
+	})
 })
