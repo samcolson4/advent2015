@@ -6,7 +6,7 @@ import (
 	"github.com/samcolson4/advent2015/five"
 )
 
-var _ = Describe("Five", func() {
+var _ = Describe("Five pt.1", func() {
 	It("Is nice because it has three vowels", func() {
 		input := "ugknbfddgicrmopn"
 
@@ -62,5 +62,15 @@ var _ = Describe("Five", func() {
 
 		Expect(assert).To(Equal(false))
 
+	})
+})
+
+var _ = Describe("Five pt.2", func() {
+	It("Is nice because it has a pair repeating twice", func() {
+		input := "xxyxx"
+
+		assert := five.TwoCheckPairs(input)
+
+		Expect(assert).To(Equal(true))
 	})
 })

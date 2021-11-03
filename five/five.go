@@ -84,3 +84,23 @@ func CheckBanned(input string) (output bool) {
 
 	return output
 }
+
+func TwoCheckPairs(input string) (output bool) {
+	var pairCount int
+	splitString := strings.Split(input, "")
+
+	for i, letter := range splitString {
+		if i == len(splitString)-1 {
+			continue
+		} else if letter == splitString[i+1] {
+			pairCount++
+		}
+	}
+
+	if pairCount >= 2 {
+		output = true
+	}
+
+	return output
+
+}
