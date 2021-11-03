@@ -4,9 +4,12 @@ import (
 	"strings"
 )
 
-func CheckString(input string) (output bool, err error) {
+func CheckString(input string) (output bool) {
+	if CheckVowels(input) && CheckDoubles(input) && CheckBanned(input) {
+		output = true
+	}
 
-	return output, nil
+	return output
 }
 
 func CheckVowels(input string) (output bool) {

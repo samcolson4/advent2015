@@ -54,4 +54,13 @@ var _ = Describe("Five", func() {
 
 		Expect(assert).To(Equal(false))
 	})
+
+	It("Checks for all issues", func() {
+		input := "jchzalrnumimnmhp"
+
+		assert := five.CheckString(input)
+
+		Expect(assert).To(Equal(false))
+
+	})
 })
