@@ -81,4 +81,12 @@ var _ = Describe("Five pt.2", func() {
 
 		Expect(assert).To(Equal(false))
 	})
+
+	It("Is naughty because it has a pair (tg) but no repeat with a single letter between them", func() {
+		input := "uurcxstgmygtbstg"
+
+		assert := five.TwoCheckPairs(input)
+
+		Expect(assert).To(Equal(false))
+	})
 })
