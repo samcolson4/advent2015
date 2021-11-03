@@ -1,6 +1,8 @@
 package five
 
-import "strings"
+import (
+	"strings"
+)
 
 func CheckString(input string) (output bool, err error) {
 
@@ -43,6 +45,37 @@ func CheckDoubles(input string) (output bool) {
 	}
 
 	if doubleCount > 0 {
+		output = true
+	}
+
+	return output
+}
+
+func CheckBanned(input string) (output bool) {
+	var bannedCount int
+
+	bannedStrings := []string{"ab", "cd", "pq", "xy"}
+	splitString := strings.Split(input, "")
+
+	for i, letter := range splitString {
+		if i == len(splitString)-1 {
+			continue
+		}
+
+		newString := letter + splitString[i+1]
+
+		for _, banned := range bannedStrings {
+			if newString == banned {
+				bannedCount += 1
+			} else {
+				continue
+			}
+		}
+	}
+
+	if bannedCount > 0 {
+		output = false
+	} else {
 		output = true
 	}
 

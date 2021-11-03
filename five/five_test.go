@@ -38,4 +38,20 @@ var _ = Describe("Five", func() {
 
 		Expect(assert).To(Equal(false))
 	})
+
+	It("Is nice because it does not contain a banned string", func() {
+		input := "ugknbfddgicrmopn"
+
+		assert := five.CheckBanned(input)
+
+		Expect(assert).To(Equal(true))
+	})
+
+	It("Is nasty because it contains banned strings", func() {
+		input := "adcdpqxy"
+
+		assert := five.CheckBanned(input)
+
+		Expect(assert).To(Equal(false))
+	})
 })
